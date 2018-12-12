@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="D:/dpUseful/mysql-connector-java-5.1.43.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<property name="suppressAllComments" value="true" />
+		<!-- other -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.3.116:3306/RMCS" userId="root"
+			password="123456">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.cetc.rmcs.entity.rsm"
+			targetProject="ZkjResearch\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+			<property name="rootClass" value="com.cetc.rmcs.entity.util.support.StationFilterEntity"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="RMCS_RSM_DSM\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.cetc.rmcs.rsm.dsm.dao" targetProject="ZkjResearch\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名
+		 <table tableName="tb_rmcs_KSC_antennainfo" domainObjectName="AntennaInfo"
+			enableCountByExample="true" selectByExampleQueryId="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true">
+		</table>
+		-->
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,31 @@
+spring:
+    jackson:
+      default-property-inclusion: non-null
+    sleuth:
+      sampler:
+        percentage: 1.0
+    application: 
+          name: ZKJ.Research
+    cloud: 
+        zookeeper:
+#            connect-string: 192.168.3.21:2181
+            connect-string: 192.168.3.116:2181
+            enabled: true
+            config: 
+                root: /dev
+                enabled: true
+                watcher: 
+                    enabled: true
+                    profileSeparator: .
+    profiles:
+        active: dev
+mybatis: 
+  type-aliases-package: com.cetc.rmt.entity.rsm
+  mapper-locations: classpath:/mapper/*.xml
+logging:
+   level:
+      root: info
+      com: 
+        cetc: 
+          rmcs: 
+            rsm: debug
